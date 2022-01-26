@@ -1,0 +1,27 @@
+
+td{  border-width: 1px;
+     text-align: center;
+     border-spacing: 1px; 
+     border-style: solid; 
+     border-color: #CCCCCC;
+    font-size: 13px;
+    padding:4px 0px 4px 0px;
+    }
+
+    th{  
+     border:1px solid gray;
+     font-size: 12px;
+     padding:7px 0px 7px 0px;
+   
+
+
+    }
+
+    .timetable {
+        width: 98%;
+        border-width: 1px;
+        
+          border-collapse: collapse;
+           border-color: gray;
+           
+            margin: 0 auto;}
