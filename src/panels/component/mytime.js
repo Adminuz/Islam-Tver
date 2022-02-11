@@ -1,6 +1,9 @@
 import { useTime } from 'react-timer-hook';
 import {CardGrid,Card,Div} from '@vkontakte/vkui';
 import logo from '../../img/logo2.webp'
+import {HijriDate, JulianDate } from '../../inc/date.js'
+
+
 export default function MyTime() {
     const style = {
         backgroundImage: `url(${logo})`,
@@ -10,11 +13,6 @@ export default function MyTime() {
        backgroundPositionY: '-10em'
   
     }
-
-    var HijriYear = new Intl.DateTimeFormat('ru-TN-u-ca-islamic',
-    {day: 'numeric', month: 'long',weekday: 'long',year : 'numeric'})
-    .formatToParts(Date.now())
-    var date = new Date();
 
 
     const {
@@ -31,7 +29,7 @@ export default function MyTime() {
           <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span><br/>
        </div>
        <div style={{fontSize: '17px',color:'white'}}>
-       {date.getDate()} Январь {date.getFullYear()}г. <br/> {HijriYear[2].value} {HijriYear[4].value} {HijriYear[6].value} г. х.
+       {JulianDate} <br/>  {HijriDate}
 
        </div>
       </div>

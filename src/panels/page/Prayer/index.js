@@ -14,7 +14,7 @@ import TitlePrayer from './title.js';
 		<PanelHeader left={<SimpleCell before={<Icon28CalendarCircleFillRed/>} >Календарь молитв</SimpleCell>
 		}>
 		 </PanelHeader>
-       <TitlePrayer date={currentDate}/>
+       <TitlePrayer/>
 
 		<Group>
 	{data && <table className='timetable'>
