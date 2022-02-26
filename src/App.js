@@ -14,9 +14,6 @@ import Menu from './panels/page/menu';
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
     const [getTodey , setTodey] = useState(null);
-
-	
-    const [getMonth, setMonth] = useState(null);
     const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	   
 
@@ -24,11 +21,10 @@ const App = () => {
 
 	   async function prayerTimes(){ 
 		const date = new Date();
-		const  month = date.getMonth() +1;
+		const month = date.getMonth();
 		const day = date.getDate() -1;
 		const data = await require(`./data/${month}.json`);
-		 setMonth(data);
-		 setTodey(data[day]);
+		  setTodey(data[day]);
 		 setPopout(null);
 		 }
 
@@ -58,7 +54,7 @@ const App = () => {
 			<AppRoot>
 				<View activePanel={activePanel} popout={popout} >
 					<Home id='home' data={getTodey} go={go} />
-					<Prayer id='prayer' data={getMonth} go={go} />
+					<Prayer id='prayer' go={go} />
 					<Contact id='contact' go={go} />
 				</View>
 				</AppRoot>
