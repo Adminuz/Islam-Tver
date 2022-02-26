@@ -4,7 +4,8 @@ import icon from '../../../img/32.png'
 import { Panel, PanelHeader, SimpleCell,  Avatar } from '@vkontakte/vkui';
 const Home = ({ id, data }) => 
 {
-	return (
+
+return (
     <Panel id={id}>
       <PanelHeader
         left={

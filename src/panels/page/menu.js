@@ -16,16 +16,36 @@ export default function Menu({go}){
 
 
 
-return( <Tabbar>
-    <TabbarItem selected={simple === 'one'} onClick={acte} data-sele="one"  data-to="home" text="Главный">
+return (
+  <Tabbar>
+    <TabbarItem
+      selected={simple === "one"}
+      onClick={acte}
+      data-sele="one"
+      data-to="home"
+      text="Главный"
+    >
       <Icon28ServicesCircleFillTurquoise />
     </TabbarItem>
-    <TabbarItem selected={simple === 'two'} onClick={acte} data-sele="two" data-to="prayer" text="Намаз">
+    <TabbarItem
+      selected={simple === "two"}
+      onClick={acte}
+      data-sele="two"
+      data-to="prayer"
+      text="Намаз"
+    >
       <Icon28CalendarCircleFillRed />
     </TabbarItem>
-    <TabbarItem selected={simple === 'three'} onClick={acte} data-sele="three" data-to="contact" text="Контакты">
+    <TabbarItem
+      selected={simple === "three"}
+      onClick={acte}
+      data-sele="three"
+      data-to="contact"
+      text="Контакты"
+    >
       <Icon28StoryQuestionCircleFillViolet />
     </TabbarItem>
-  </Tabbar>)
+  </Tabbar>
+);
 
 }

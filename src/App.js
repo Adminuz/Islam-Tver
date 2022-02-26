@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import bridge from '@vkontakte/vk-bridge';
 import { View, AdaptivityProvider,ScreenSpinner, AppRoot} from '@vkontakte/vkui';
-import Praym from './inc/AppClass';
-import '@vkontakte/vkui/dist/vkui.css';
+import "@vkontakte/vkui/dist/vkui.css";
 
 /// Component
 import Home from './panels/page/Home';
@@ -18,22 +17,32 @@ const App = () => {
     const [getMonth, setMonth] = useState(null);
     const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 	   
-	async function Todey(){
-		let main = new Praym();
-		setMonth(await main.month());
-		setTodey(main.tody);
-		setPopout(null);
-	   }
+
+
+
+	   async function prayerTimes(){ 
+		const date = new Date();
+		const  month = date.getMonth() +1;
+		const day = date.getDate() -1;
+		const data = await require(`./data/${month}.json`);
+		 setMonth(data);
+		 setTodey(data[day]);
+		 setPopout(null);
+		 }
+
+
 
 	useEffect(() => {
-         bridge.subscribe(({ detail: { type, data }}) => {
+
+		prayerTimes();
+           bridge.subscribe(({ detail: { type, data }}) => {
 			if (type === 'VKWebAppUpdateConfig') {
 				const schemeAttribute = document.createAttribute('scheme');
 				schemeAttribute.value = 'client_light';
 				document.body.attributes.setNamedItem(schemeAttribute);
 			}
 		});
-	Todey();
+	
   
 
 	}, []);

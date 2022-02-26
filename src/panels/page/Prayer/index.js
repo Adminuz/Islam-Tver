@@ -7,41 +7,45 @@ import TitlePrayer from './title.js';
 
     const Prayer = ({id,data}) =>{
 		
-		var currentDate = new Date();
- 
-	return(
-	 <Panel id={id}>
-		<PanelHeader left={<SimpleCell before={<Icon28CalendarCircleFillRed/>} >Календарь молитв</SimpleCell>
-		}>
-		 </PanelHeader>
-       <TitlePrayer/>
+	return (
+    <Panel id={id}>
+      <PanelHeader
+        left={
+          <SimpleCell before={<Icon28CalendarCircleFillRed />}>
+            Календарь молитв
+          </SimpleCell>
+        }
+      ></PanelHeader>
+      <TitlePrayer />
 
-		<Group>
-	{data && <table className='timetable'>
-       <thead>
-	   <tr>
-    <th>День</th>
-    <th>Фаджр</th>
-    <th>Восход</th>
-    <th>Зур</th>
-    <th>Аср</th>
-	<th>Магриб</th>
-	<th>Иша</th>
-	</tr>
-	</thead>
+      <Group>
+        {data && (
+          <table className="timetable">
+            <thead>
+              <tr>
+                <th>День</th>
+                <th>Фаджр</th>
+                <th>Восход</th>
+                <th>Зур</th>
+                <th>Аср</th>
+                <th>Магриб</th>
+                <th>Иша</th>
+              </tr>
+            </thead>
 
- 
-	<tbody>
-  {data.map((e,i) => <TimeTable key={i} date={currentDate} objact={e} id={i+1}/>)}
-   </tbody>
- 
-</table> }
-		</Group>
-		
-		<Div/>
-		<Div/>
-	</Panel>
-)};
+            <tbody>
+              {data.map((e, i) => (
+                <TimeTable key={i} time={e} id={i + 1} />
+              ))}
+            </tbody>
+          </table>
+        )}
+      </Group>
+
+      <Div />
+      <Div />
+    </Panel>
+  );};
 
 
 export default Prayer;
